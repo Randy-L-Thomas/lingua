@@ -1,0 +1,567 @@
+# Mexican Spanish → American English. First match wins. Tab-separated.
+# Phrases first in this file so duplicates keep the phrase.
+
+buenas tardes tiene paquete	Good afternoon, you have a package
+buenos dias tiene paquete	Good morning, you have a package
+tiene un paquete	you have a package
+tiene paquete	you have a package
+buenas tardes	Good afternoon
+buenos dias	Good morning
+buenas noches	Good evening
+hola como estas	hello, how are you
+como estas	how are you
+como esta	how are you
+mucho gusto	nice to meet you
+de nada	you're welcome
+por favor	please
+lo siento	I'm sorry
+hasta luego	see you later
+nos vemos	see you
+esta bien	that's fine
+está bien	that's fine
+todo bien	all good
+estoy bien	I'm fine
+en camino	on the way
+ya esta	it's done
+ya está	it's done
+te mando	I'll send you
+te llamo	I'll call you
+a que hora	what time
+dónde esta	where is
+donde esta	where is
+cuanto cuesta	how much is it
+no hay	there is no
+si senor	yes sir
+sí señor	yes sir
+con permiso	excuse me
+muy amable	very kind
+que tal	how's it going
+qué tal	how's it going
+te mando un mensaje	I'll send you a message
+me mandas	you send me
+me mandas un mensaje	you send me a message
+no manches	no way
+que onda	what's up
+qué onda	what's up
+ando en el carro	I'm in the car
+en el carro	in the car
+ahorita voy	I'll be right there
+ya voy	I'm on my way
+ya llegue	I just got here
+ya llegué	I just got here
+estoy ocupado	I'm busy
+estoy ocupada	I'm busy
+te veo	see you
+hablamos luego	talk later
+dame un chance	give me a minute
+espera tantito	wait a second
+un momentito	one moment
+esta bien gracias	that's fine, thank you
+
+hola	hello
+gracias	thank you
+si	yes
+sí	yes
+no	no
+ok	ok
+okis	ok
+vale	ok
+jaja	haha
+ja	ha
+paquete	package
+paquetes	packages
+gato	cat
+gatos	cats
+perro	dog
+perros	dogs
+tiene	has
+tengo	I have
+tenemos	we have
+mensaje	message
+mensajes	messages
+foto	photo
+fotos	photos
+llamada	call
+ahora	now
+luego	later
+hoy	today
+ayer	yesterday
+manana	tomorrow
+mañana	tomorrow
+aqui	here
+aquí	here
+alli	there
+allí	there
+bien	good
+mal	bad
+espera	wait
+listo	ready
+perfecto	perfect
+claro	sure
+bueno	well
+tambien	also
+también	also
+porque	because
+pero	but
+con	with
+sin	without
+para	for
+por	for
+de	of
+el	the
+la	the
+los	the
+las	the
+un	a
+una	a
+y	and
+o	or
+que	that
+qué	what
+en	in
+a	to
+es	is
+esta	is
+está	is
+son	are
+hay	there is
+puedo	I can
+puede	can
+quiero	I want
+necesito	I need
+mando	I send
+envio	I send
+envío	I send
+recibi	I received
+recibí	I received
+entregado	delivered
+oficina	office
+casa	house
+casas	houses
+calle	street
+numero	number
+número	number
+yo	I
+tu	you
+tú	you
+usted	you
+él	he
+ella	she
+como	how
+cómo	how
+donde	where
+dónde	where
+cuando	when
+cuándo	when
+quien	who
+quién	who
+tardes	afternoon
+dias	days
+días	days
+noches	nights
+buenas	good
+buenos	good
+senor	sir
+señor	sir
+porfa	please
+favor	favor
+
+mi	my
+tu	your
+su	your
+nuestro	our
+nuestra	our
+me	me
+te	you
+le	him
+les	them
+nos	us
+esto	this
+esta	this
+ese	that
+esa	that
+esos	those
+esas	those
+algo	something
+nada	nothing
+alguien	someone
+nadie	nobody
+todo	everything
+todos	everyone
+muy	very
+mas	more
+más	more
+menos	less
+mucho	a lot
+poco	a little
+otro	another
+otra	another
+mismo	same
+asi	like this
+así	like this
+tambien	too
+ya	already
+todavia	still
+todavía	still
+siempre	always
+nunca	never
+tambien	also
+solo	only
+sólo	only
+tambien	also
+
+perro	dog
+perra	dog
+pajaro	bird
+pájaro	bird
+caballo	horse
+vaca	cow
+pez	fish
+raton	mouse
+ratón	mouse
+animal	animal
+
+mama	mom
+mamá	mom
+papa	dad
+papá	dad
+hijo	son
+hija	daughter
+esposo	husband
+esposa	wife
+hermano	brother
+hermana	sister
+amigo	friend
+amiga	friend
+familia	family
+bebe	baby
+bebé	baby
+nino	kid
+niño	kid
+nina	kid
+niña	kid
+gente	people
+persona	person
+nombre	name
+
+agua	water
+cafe	coffee
+café	coffee
+comida	food
+desayuno	breakfast
+almuerzo	lunch
+cena	dinner
+cerveza	beer
+refresco	soda
+leche	milk
+pan	bread
+taco	taco
+tacos	tacos
+salsa	sauce
+arroz	rice
+pollo	chicken
+carne	meat
+queso	cheese
+fruta	fruit
+manzana	apple
+naranja	orange
+azucar	sugar
+azúcar	sugar
+sal	salt
+hambre	hunger
+sed	thirst
+
+carro	car
+coche	car
+camion	truck
+camión	truck
+camioneta	pickup
+autobus	bus
+autobús	bus
+metro	subway
+avion	plane
+avión	plane
+bicicleta	bike
+moto	motorcycle
+gasolina	gas
+llanta	tire
+trafico	traffic
+tráfico	traffic
+
+celular	cell phone
+cel	cell
+computadora	computer
+laptop	laptop
+internet	internet
+wifi	wifi
+correo	email
+whatsapp	WhatsApp
+llamada	call
+video	video
+pantalla	screen
+bateria	battery
+batería	battery
+cargador	charger
+clave	password
+contraseña	password
+
+dinero	money
+peso	peso
+pesos	pesos
+precio	price
+cuenta	bill
+pago	payment
+pagar	to pay
+barato	cheap
+caro	expensive
+gratis	free
+trabajo	work
+trabajo	job
+jefe	boss
+empleado	employee
+reunion	meeting
+reunión	meeting
+cita	appointment
+
+hora	hour
+horas	hours
+minuto	minute
+minutos	minutes
+segundo	second
+semana	week
+mes	month
+año	year
+lunes	Monday
+martes	Tuesday
+miercoles	Wednesday
+miércoles	Wednesday
+jueves	Thursday
+viernes	Friday
+sabado	Saturday
+sábado	Saturday
+domingo	Sunday
+
+casa	house
+departamento	apartment
+depa	apartment
+cuarto	room
+recamara	bedroom
+recámara	bedroom
+cocina	kitchen
+baño	bathroom
+sala	living room
+puerta	door
+ventana	window
+llave	key
+llaves	keys
+direccion	address
+dirección	address
+colonia	neighborhood
+ciudad	city
+pueblo	town
+mexico	Mexico
+méxico	Mexico
+
+escuela	school
+trabajo	work
+tienda	store
+super	supermarket
+súper	supermarket
+mercado	market
+banco	bank
+iglesia	church
+hospital	hospital
+farmacia	pharmacy
+parque	park
+playa	beach
+alberca	pool
+gimnasio	gym
+
+rojo	red
+azul	blue
+verde	green
+amarillo	yellow
+negro	black
+blanco	white
+gris	gray
+grande	big
+pequeno	small
+pequeño	small
+nuevo	new
+viejo	old
+bonito	pretty
+feo	ugly
+rapido	fast
+rápido	fast
+lento	slow
+caliente	hot
+frio	cold
+frío	cold
+limpio	clean
+sucio	dirty
+abierto	open
+cerrado	closed
+lleno	full
+vacio	empty
+vacío	empty
+facil	easy
+fácil	easy
+dificil	hard
+difícil	hard
+
+ir	to go
+voy	I'm going
+vas	you go
+va	goes
+vamos	let's go
+van	they go
+venir	to come
+vengo	I come
+viene	comes
+venir	to come
+ser	to be
+soy	I am
+eres	you are
+somos	we are
+estar	to be
+estoy	I am
+estas	you are
+estás	you are
+estamos	we are
+hacer	to do
+hago	I do
+hace	does
+hacemos	we do
+tener	to have
+decir	to say
+digo	I say
+dice	says
+ver	to see
+veo	I see
+ves	you see
+vemos	we see
+saber	to know
+sé	I know
+sabes	you know
+querer	to want
+quiere	wants
+queremos	we want
+poder	to be able
+puedes	you can
+podemos	we can
+ir	go
+dar	to give
+dame	give me
+dime	tell me
+mira	look
+escucha	listen
+hablar	to talk
+platicar	to chat
+platico	I chat
+llamar	to call
+mandar	to send
+esperar	to wait
+llegar	to arrive
+salir	to leave
+entrar	to enter
+comer	to eat
+beber	to drink
+tomar	to drink
+dormir	to sleep
+trabajar	to work
+comprar	to buy
+vender	to sell
+pagar	to pay
+ayudar	to help
+buscar	to look for
+encontrar	to find
+pensar	to think
+creer	to believe
+gustar	to like
+me gusta	I like
+te gusta	you like
+necesitar	to need
+usar	to use
+abrir	to open
+cerrar	to close
+empezar	to start
+terminar	to finish
+pasar	to happen
+pasa	happens
+quedar	to stay
+quedo	I'll stay
+
+adios	goodbye
+adiós	goodbye
+bye	bye
+saludos	regards
+besos	kisses
+abrazo	hug
+felicidades	congratulations
+feliz	happy
+cumple	birthday
+cumpleaños	birthday
+salud	bless you
+perdon	sorry
+perdón	sorry
+disculpa	sorry
+andale	come on
+ándale	come on
+orale	all right
+órale	all right
+chido	cool
+padre	cool
+gacho	lame
+frio	cold
+
+manana	morning
+mañana	morning
+tarde	afternoon
+noche	night
+temprano	early
+tarde	late
+
+izquierda	left
+derecha	right
+arriba	up
+abajo	down
+cerca	near
+lejos	far
+dentro	inside
+fuera	outside
+delante	in front
+atras	behind
+atrás	behind
+
+pregunta	question
+respuesta	answer
+problema	problem
+idea	idea
+razon	reason
+razón	reason
+verdad	true
+mentira	lie
+cierto	true
+seguro	sure
+tal vez	maybe
+quizas	maybe
+quizás	maybe
+ahorita	right now
+al rato	in a bit
+luego luego	right away
+de volada	real quick
+de una	right away
+whats	WhatsApp
+wasap	WhatsApp
+mensaje	text
+text	text
+audio	voice note
+nota	note
+sticker	sticker
+grupo	group
+chat	chat
+estado	status
+historia	story
+perfil	profile
+contacto	contact
+numero	number

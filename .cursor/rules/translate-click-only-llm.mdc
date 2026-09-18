@@ -1,0 +1,30 @@
+---
+description: Translate default is Opus-MT on CPU. Ollama is never used for Translate. Lex is fallback only.
+alwaysApply: true
+---
+
+# Translate contract (do not flip)
+
+Default / Go / Follow / paste / type / lang change = **Opus-MT** (Candle Marian, CPU, `%APPDATA%\lingua\mt`, or Pulse’s cache). Send `llm: true` (or the same seq2seq path). Status like `opus · opus-mt-es-en`.
+
+Do **not** start Ollama for Translate. Do **not** fall back to Ollama. Do **not** reintroduce `scheduleLlm`, `overlayLlm`, `llmTimer`, or status `lex · llm…`. Chat may still talk to Ollama; Translate must not.
+
+Lexicon (`llm: false`) is **fallback only** when Opus files are missing or the download failed (keep dest, plain error, `lex fallback`). Do not make lex what Randy sees on Go.
+
+Follow: do not fire Opus every 700ms when OCR text is unchanged. Reuse last dest. First tick may download (`getting es-en…` is OK).
+
+Do not change this contract unless Randy says so in chat.
+
+```typescript
+// BAD — lex as the default dest
+setMtStatus("lex", "ok");
+invoke("translate_text", { llm: false });
+
+// BAD — Ollama overlay after lex
+setMtStatus("lex · llm…", "busy");
+scheduleLlm(source, from, to, epoch, 350);
+
+// GOOD — default is in-process Opus-MT
+setMtStatus("opus · opus-mt-es-en", "ok");
+invoke("translate_text", { llm: true });
+```

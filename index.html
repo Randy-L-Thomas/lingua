@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lingua</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="titlebar">
+        <span class="mark">LINGUA</span>
+        <span id="clock" class="clock"></span>
+        <div class="title-actions">
+          <button type="button" id="btn-settings" class="tb" title="Settings">Set</button>
+          <button type="button" id="btn-pin" class="tb on" title="Stay on top of other windows" aria-pressed="true">Pin</button>
+          <button type="button" id="btn-min" class="tb ico" title="Minimize">–</button>
+          <button type="button" id="btn-close" class="tb ico" title="Close">×</button>
+        </div>
+      </header>
+      <div id="workspace">
+        <aside id="modules">
+          <nav class="mod-switch" aria-label="Modules">
+            <button type="button" class="mod-tab on" data-mod="translate">Translate</button>
+            <button type="button" class="mod-tab" data-mod="ocr">OCR</button>
+            <button type="button" class="mod-tab" data-mod="chat">Chat</button>
+          </nav>
+          <section id="mod-translate" class="mod-pane">
+            <div class="mod-row mt-bar">
+              <select id="mt-from" title="From">
+                <option value="es">Mexican Spanish</option>
+                <option value="en">American English</option>
+              </select>
+              <button type="button" id="mt-swap" class="tb on mt-swap" title="Swap languages" aria-label="Swap languages">↔</button>
+              <select id="mt-to" title="To">
+                <option value="en">American English</option>
+                <option value="es">Mexican Spanish</option>
+              </select>
+              <button type="button" id="mt-copy" class="tb">Copy</button>
+              <button type="button" id="mt-clear" class="tb mt-clear">Clear</button>
+              <button type="button" id="mt-follow" class="tb" aria-pressed="false" title="Re-OCR the bound WhatsApp chat as you scroll and keep Translate updated">Follow</button>
+              <button type="button" id="mt-go" class="tb on" title="Opus-MT on this PC (CPU, not Ollama). First run may download es-en or en-es. Reuses Pulse’s model cache if present.">Go</button>
+              <button type="button" id="mt-llm" class="tb" title="Same as Go: Opus-MT on CPU. Not Ollama. Lexicon is used only if the model files are missing.">LLM</button>
+              <span id="mt-status" class="mt-status" role="status" aria-live="polite" title="Opus-MT runs on this PC. Lexicon rows in lex-es-en.tsv are fallback only."></span>
+            </div>
+            <div class="mt-cols">
+              <textarea id="mt-src" placeholder="Type or paste"></textarea>
+              <textarea id="mt-dst" placeholder="Translation" readonly></textarea>
+            </div>
+          </section>
+          <section id="mod-ocr" class="mod-pane" hidden>
+            <div class="mod-row">
+              <select id="ocr-win" class="wide"></select>
+              <button type="button" id="ocr-bind" class="tb">Bind</button>
+              <button type="button" id="ocr-go" class="tb on">OCR</button>
+              <button type="button" id="ocr-to-mt" class="tb">Translate</button>
+              <span id="ocr-status" class="hint"></span>
+            </div>
+            <textarea id="ocr-out" class="ocr-out" placeholder="Open chat (last focused)"></textarea>
+          </section>
+          <section id="mod-chat" class="mod-pane" hidden>
+            <div class="mod-row">
+              <select id="chat-engine" title="Which backend answers: Ollama on this PC, or DeepSeek on Azure AI Foundry">
+                <option value="ollama">Ollama</option>
+                <option value="dsf">DSF</option>
+              </select>
+              <select id="chat-model"></select>
+              <button type="button" id="chat-refresh" class="tb">Models</button>
+              <span id="chat-status" class="hint"></span>
+            </div>
+            <div id="chat-log" class="chat-log"></div>
+            <div class="mod-row">
+              <input id="chat-in" type="text" placeholder="message" />
+              <button type="button" id="chat-send" class="tb on">Send</button>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+    <div id="title-menu" class="title-menu" hidden role="menu">
+      <button type="button" id="title-menu-pin" class="on" role="menuitemcheckbox" data-act="pin" aria-checked="true"><span class="tick" aria-hidden="true">✓</span> Always on top</button>
+      <hr />
+      <button type="button" role="menuitem" data-act="dock">Dock to display</button>
+      <hr />
+      <button type="button" role="menuitem" data-act="settings">Settings</button>
+      <button type="button" role="menuitem" data-act="copy-status">Copy status</button>
+      <button type="button" role="menuitem" data-act="font-up">Font larger</button>
+      <button type="button" role="menuitem" data-act="font-down">Font smaller</button>
+      <hr />
+      <button type="button" role="menuitem" data-act="min">Minimize</button>
+      <button type="button" role="menuitem" data-act="close">Close</button>
+    </div>
+    <div id="settings" class="settings" hidden>
+      <header class="settings-head">
+        <span>Settings</span>
+        <button type="button" id="btn-settings-close" class="tb">Close</button>
+      </header>
+      <div class="settings-body">
+        <section class="settings-tab">
+          <div class="settings-row">
+            <button type="button" id="set-pin" class="tb on">Pin</button>
+            <label><input id="set-autostart" type="checkbox" /> Start with Windows</label>
+          </div>
+          <label>Strip width <input id="set-mon-w" type="number" min="800" max="3840" /></label>
+          <label>Strip height max <input id="set-mon-h" type="number" min="400" max="600" /></label>
+          <label>Panel width <input id="set-panel-w" type="number" min="480" max="1920" /></label>
+          <label>Ollama URL <input id="set-ollama-url" class="wide" placeholder="http://127.0.0.1:11434" /></label>
+          <p id="update-meta" class="hint"></p>
+          <p class="hint">Opus-MT files: %APPDATA%\lingua\mt, or Pulse’s cache if that folder is empty. Chat transcript: %APPDATA%\lingua\chat.json.</p>
+        </section>
+      </div>
+      <footer class="settings-foot">
+        <button type="button" id="btn-settings-save" class="tb on">Save</button>
+      </footer>
+    </div>
+    <div id="toast" class="toast" hidden></div>
+    <div id="grips" aria-hidden="true">
+      <button type="button" class="grip n" data-resize="north" tabindex="-1"></button>
+      <button type="button" class="grip s" data-resize="south" tabindex="-1"></button>
+      <button type="button" class="grip e" data-resize="east" tabindex="-1"></button>
+      <button type="button" class="grip w" data-resize="west" tabindex="-1"></button>
+      <button type="button" class="grip ne" data-resize="northEast" tabindex="-1"></button>
+      <button type="button" class="grip nw" data-resize="northWest" tabindex="-1"></button>
+      <button type="button" class="grip se" data-resize="southEast" tabindex="-1"></button>
+      <button type="button" class="grip sw" data-resize="southWest" tabindex="-1"></button>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,332 @@
+# American English → Mexican Spanish. First match wins. Tab-separated.
+
+good afternoon, you have a package	Buenas tardes, tiene paquete
+you have a package	tiene paquete
+good afternoon	Buenas tardes
+good morning	Buenos días
+good evening	Buenas noches
+good night	Buenas noches
+hello, how are you	hola, ¿cómo estás?
+how are you	¿cómo estás?
+nice to meet you	mucho gusto
+you're welcome	de nada
+thank you	gracias
+thanks	gracias
+please	por favor
+i'm sorry	lo siento
+see you later	hasta luego
+see you	nos vemos
+that's fine	está bien
+all good	todo bien
+i'm fine	estoy bien
+on the way	en camino
+what time	¿a qué hora?
+how much	¿cuánto?
+excuse me	con permiso
+i'll send you	te mando
+i'll call you	te llamo
+cell phone	celular
+i like	me gusta
+right now	ahorita
+in a bit	al rato
+no way	no manches
+what's up	qué onda
+talk later	hablamos luego
+i'm busy	estoy ocupado
+i just got here	ya llegué
+i'm on my way	ya voy
+give me a minute	dame un chance
+
+hello	hola
+hi	hola
+hey	hola
+yes	sí
+no	no
+ok	ok
+okay	ok
+package	paquete
+packages	paquetes
+cat	gato
+cats	gatos
+dog	perro
+dogs	perros
+has	tiene
+have	tiene
+message	mensaje
+messages	mensajes
+photo	foto
+call	llamada
+now	ahora
+later	luego
+today	hoy
+yesterday	ayer
+tomorrow	mañana
+here	aquí
+there	allí
+good	bien
+bad	mal
+wait	espera
+ready	listo
+perfect	perfecto
+sure	claro
+well	bueno
+also	también
+because	porque
+but	pero
+with	con
+without	sin
+for	para
+the	el
+a	un
+an	un
+and	y
+or	o
+that	que
+what	qué
+in	en
+to	a
+is	es
+are	son
+i	yo
+you	tú
+he	él
+she	ella
+how	cómo
+where	dónde
+when	cuándo
+who	quién
+afternoon	tardes
+morning	mañana
+sir	señor
+office	oficina
+house	casa
+street	calle
+number	número
+delivered	entregado
+
+my	mi
+your	tu
+our	nuestro
+me	me
+him	él
+us	nos
+this	esto
+those	esos
+something	algo
+nothing	nada
+someone	alguien
+nobody	nadie
+everything	todo
+everyone	todos
+very	muy
+more	más
+less	menos
+already	ya
+still	todavía
+always	siempre
+never	nunca
+only	solo
+
+bird	pájaro
+horse	caballo
+cow	vaca
+fish	pez
+mouse	ratón
+animal	animal
+mom	mamá
+dad	papá
+son	hijo
+daughter	hija
+husband	esposo
+wife	esposa
+brother	hermano
+sister	hermana
+friend	amigo
+family	familia
+baby	bebé
+kid	niño
+people	gente
+person	persona
+name	nombre
+
+water	agua
+coffee	café
+food	comida
+breakfast	desayuno
+lunch	almuerzo
+dinner	cena
+beer	cerveza
+soda	refresco
+milk	leche
+bread	pan
+taco	taco
+chicken	pollo
+meat	carne
+cheese	queso
+fruit	fruta
+apple	manzana
+orange	naranja
+sugar	azúcar
+salt	sal
+
+car	carro
+truck	camión
+pickup	camioneta
+bus	autobús
+subway	metro
+plane	avión
+bike	bicicleta
+motorcycle	moto
+gas	gasolina
+tire	llanta
+traffic	tráfico
+
+computer	computadora
+laptop	laptop
+internet	internet
+wifi	wifi
+email	correo
+screen	pantalla
+battery	batería
+charger	cargador
+password	contraseña
+text	mensaje
+group	grupo
+chat	chat
+contact	contacto
+
+money	dinero
+price	precio
+bill	cuenta
+payment	pago
+cheap	barato
+expensive	caro
+free	gratis
+work	trabajo
+job	trabajo
+boss	jefe
+meeting	reunión
+appointment	cita
+
+hour	hora
+minute	minuto
+week	semana
+month	mes
+year	año
+monday	lunes
+tuesday	martes
+wednesday	miércoles
+thursday	jueves
+friday	viernes
+saturday	sábado
+sunday	domingo
+
+apartment	departamento
+room	cuarto
+bedroom	recámara
+kitchen	cocina
+bathroom	baño
+door	puerta
+window	ventana
+key	llave
+keys	llaves
+address	dirección
+neighborhood	colonia
+city	ciudad
+town	pueblo
+mexico	México
+
+school	escuela
+store	tienda
+supermarket	súper
+market	mercado
+bank	banco
+church	iglesia
+hospital	hospital
+pharmacy	farmacia
+park	parque
+beach	playa
+pool	alberca
+gym	gimnasio
+
+red	rojo
+blue	azul
+green	verde
+yellow	amarillo
+black	negro
+white	blanco
+gray	gris
+big	grande
+small	pequeño
+new	nuevo
+old	viejo
+pretty	bonito
+ugly	feo
+fast	rápido
+slow	lento
+hot	caliente
+cold	frío
+clean	limpio
+dirty	sucio
+open	abierto
+closed	cerrado
+full	lleno
+empty	vacío
+easy	fácil
+hard	difícil
+
+i'm going	voy
+let's go	vamos
+i am	estoy
+you are	estás
+we are	estamos
+i have	tengo
+i want	quiero
+i need	necesito
+i can	puedo
+you can	puedes
+give me	dame
+tell me	dime
+look	mira
+listen	escucha
+to talk	hablar
+to chat	platicar
+to call	llamar
+to send	mandar
+to wait	esperar
+to eat	comer
+to drink	tomar
+to sleep	dormir
+to work	trabajar
+to buy	comprar
+to help	ayudar
+
+goodbye	adiós
+bye	bye
+regards	saludos
+kisses	besos
+hug	abrazo
+congratulations	felicidades
+happy	feliz
+birthday	cumpleaños
+sorry	perdón
+come on	ándale
+cool	chido
+maybe	tal vez
+
+left	izquierda
+right	derecha
+up	arriba
+down	abajo
+near	cerca
+far	lejos
+inside	dentro
+outside	fuera
+behind	atrás
+
+question	pregunta
+answer	respuesta
+problem	problema
+idea	idea
+true	verdad
+lie	mentira

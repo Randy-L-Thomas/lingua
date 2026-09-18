@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install frontend
+        run: npm ci
+
+      - name: Build installer
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: Lingua ${{ github.ref_name }}
+          releaseBody: |
+            Windows installer (NSIS) and portable zip.
+
+            WebView2 is already on Windows 10/11.
+          releaseDraft: false
+          prerelease: false
+          args: --bundles nsis
+          includeUpdaterJson: false
+
+      - name: Portable zip
+        shell: pwsh
+        run: |
+          $ver = "${{ github.ref_name }}".TrimStart("v")
+          $exe = "src-tauri/target/release/lingua.exe"
+          if (-not (Test-Path $exe)) { throw "lingua.exe missing" }
+          $out = "lingua-$ver-windows-x64.zip"
+          Compress-Archive -Path $exe -DestinationPath $out -Force
+          gh release upload "${{ github.ref_name }}" $out --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
