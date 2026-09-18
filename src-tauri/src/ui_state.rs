@@ -36,6 +36,9 @@ pub struct UiState {
     /// Missing field must stay pinned so existing ui.json does not unpin on upgrade.
     #[serde(default = "default_pinned")]
     pub pinned: bool,
+    /// "off" | "min" | "tray". Missing stays visible on launch.
+    #[serde(default = "default_launch_hide")]
+    pub launch_hide: String,
 }
 
 fn default_module() -> String {
@@ -64,6 +67,16 @@ fn default_win_mode() -> String {
 }
 fn default_pinned() -> bool {
     true
+}
+fn default_launch_hide() -> String {
+    "off".into()
+}
+
+pub fn normalize_launch_hide(s: &str) -> String {
+    match s {
+        "min" | "tray" => s.into(),
+        _ => default_launch_hide(),
+    }
 }
 
 pub const WIN_MIN_W: u32 = 480;
@@ -94,6 +107,7 @@ impl Default for UiState {
             win_w: 0,
             win_h: 0,
             pinned: default_pinned(),
+            launch_hide: default_launch_hide(),
         }
     }
 }
@@ -113,6 +127,8 @@ fn seed_from_pulse() -> Option<UiState> {
     state.win_y = 0;
     state.win_w = 0;
     state.win_h = 0;
+    // First visible run must not inherit Pulse hide-on-launch.
+    state.launch_hide = default_launch_hide();
     Some(state)
 }
 
@@ -121,6 +137,7 @@ pub fn load() -> UiState {
     if let Ok(raw) = fs::read_to_string(&p) {
         let mut state: UiState = serde_json::from_str(&raw).unwrap_or_default();
         state.font_px = clamp_font_px(state.font_px);
+        state.launch_hide = normalize_launch_hide(&state.launch_hide);
         return state;
     }
     seed_from_pulse().unwrap_or_default()
@@ -135,7 +152,7 @@ pub fn save(state: &UiState) -> Result<(), String> {
 
 #[cfg(test)]
 mod tests {
-    use super::UiState;
+    use super::{default_launch_hide, UiState};
 
     #[test]
     fn missing_pinned_deserializes_as_true() {
@@ -168,5 +185,18 @@ mod tests {
     #[test]
     fn default_ui_is_pinned() {
         assert!(UiState::default().pinned);
+    }
+
+    #[test]
+    fn missing_launch_hide_is_off() {
+        let ui: UiState = serde_json::from_str(r#"{}"#).unwrap();
+        assert_eq!(ui.launch_hide, "off");
+    }
+
+    #[test]
+    fn seed_from_pulse_does_not_inherit_hide() {
+        let mut ui: UiState = serde_json::from_str(r#"{"launch_hide":"tray"}"#).unwrap();
+        ui.launch_hide = default_launch_hide();
+        assert_eq!(ui.launch_hide, "off");
     }
 }

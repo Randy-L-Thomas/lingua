@@ -2,6 +2,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { disable as disableAutostart, enable as enableAutostart, isEnabled as autostartEnabled } from "@tauri-apps/plugin-autostart";
 import { loadUi, saveUi } from "./ui-store";
 import { isPinned, setPinned } from "./pin";
+import { normalizeLaunchHide, paintLaunchHide, wireLaunchHide } from "./launch_hide";
 
 export type Settings = {
   height: number;
@@ -35,6 +36,7 @@ export function wireSettings(toast: ToastFn) {
     } catch {
       (document.getElementById("set-autostart") as HTMLInputElement).checked = false;
     }
+    paintLaunchHide(normalizeLaunchHide(ui.launch_hide));
     const meta = await invoke<{ version: string; config_path: string }>("app_meta");
     (document.getElementById("update-meta") as HTMLElement).textContent =
       `v${meta.version}  ·  ${meta.config_path}`;
@@ -94,6 +96,7 @@ export function wireSettings(toast: ToastFn) {
     }
   });
 
+  wireLaunchHide((e) => toast(String(e)));
   document.addEventListener("keydown", (ev) => {
     if (ev.key === "Escape" && !overlay.hidden) overlay.hidden = true;
   });
