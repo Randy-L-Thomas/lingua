@@ -2,6 +2,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { isPinned, setPinned } from "./pin";
 import { nudgeFontPx } from "./ui-font";
+import { requestMinimize } from "./launch_hide";
 
 export type TitleMenuHost = {
   toast: (msg: string, ms?: number) => void;
@@ -90,7 +91,7 @@ async function runMenuAction(act: string, host: TitleMenuHost) {
       await nudgeFontPx(-1, host.toast);
       return;
     case "min":
-      void win.minimize().catch(() => {});
+      void requestMinimize().catch(() => {});
       return;
     case "close":
       void win.close().catch(() => {});

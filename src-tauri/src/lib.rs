@@ -7,6 +7,7 @@ mod mt_seq2seq;
 mod ocr_text;
 mod ollama;
 mod translate;
+mod tray;
 mod ui_state;
 mod window;
 mod winui;
@@ -109,6 +110,7 @@ fn save_ui(state: tauri::State<'_, Arc<AppState>>, mut ui: UiState) -> Result<()
     ui.win_y = guard.win_y;
     ui.win_w = guard.win_w;
     ui.win_h = guard.win_h;
+    ui.launch_hide = ui_state::normalize_launch_hide(&ui.launch_hide);
     ui_state::save(&ui)?;
     *guard = ui;
     Ok(())
@@ -270,9 +272,8 @@ pub fn run() {
         .plugin({
             let si_state = state.clone();
             tauri_plugin_single_instance::init(move |app, _argv, _cwd| {
+                tray::restore_main(app);
                 if let Some(win) = app.get_webview_window("main") {
-                    let _ = win.unminimize();
-                    let _ = win.set_focus();
                     let pinned = si_state.ui.lock().unwrap().pinned;
                     let _ = win.set_always_on_top(pinned);
                 }
@@ -283,6 +284,7 @@ pub fn run() {
         .manage(state.clone())
         .setup(move |app| {
             ensure_default_autostart(app.handle());
+            tray::install(app, "Lingua")?;
             winui::start_focus_watch();
             let win = app.get_webview_window("main").expect("main window");
             let cfg = state.cfg.lock().unwrap().clone();
@@ -290,6 +292,7 @@ pub fn run() {
             *state.geom_lock.lock().unwrap() = true;
             let mode = window::apply_saved(&win, &cfg, &saved).unwrap_or(WidthMode::Half);
             let _ = win.set_always_on_top(saved.pinned);
+            tray::apply_launch_hide(&win, app.handle(), &saved.launch_hide);
             *state.width.lock().unwrap() = mode;
             let _ = app.handle().emit("width-mode", mode.as_str());
             let unlock = state.clone();
@@ -345,10 +348,36 @@ pub fn run() {
             dsf_chat,
             chat_load,
             chat_save,
-            chat_clear
+            chat_clear,
+            hide_to_tray,
+            set_launch_hide
         ])
         .run(tauri::generate_context!())
         .expect("error while running lingua");
+}
+
+#[tauri::command]
+fn hide_to_tray(app: tauri::AppHandle) -> Result<(), String> {
+    tray::hide_to_tray(&app)
+}
+
+#[tauri::command]
+fn set_launch_hide(
+    app: tauri::AppHandle,
+    state: tauri::State<'_, Arc<AppState>>,
+    mode: String,
+) -> Result<(), String> {
+    let mode = ui_state::normalize_launch_hide(&mode);
+    {
+        let mut ui = state.ui.lock().unwrap();
+        ui.launch_hide = mode.clone();
+        ui_state::save(&ui)?;
+    }
+    if mode != "tray" {
+        tray::restore_main(&app);
+    }
+    tray::set_visible(&app, mode == "tray");
+    Ok(())
 }
 
 fn ensure_default_autostart(app: &tauri::AppHandle) {

@@ -12,6 +12,7 @@ export type UiState = {
   font_px?: number;
   win_mode?: string;
   pinned?: boolean;
+  launch_hide?: string;
 };
 
 let cache: UiState | null = null;

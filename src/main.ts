@@ -5,6 +5,7 @@ import { wireFontSize } from "./ui-font";
 import { loadUi } from "./ui-store";
 import { hydratePinned, wirePin } from "./pin";
 import { closeTitleMenu, wireTitlebarMenu } from "./title_menu";
+import { requestMinimize } from "./launch_hide";
 
 const toastEl = document.getElementById("toast") as HTMLElement;
 const clockEl = document.getElementById("clock") as HTMLElement;
@@ -21,7 +22,9 @@ function toast(msg: string, ms = 2800) {
   }, ms);
 }
 
-document.getElementById("btn-min")!.addEventListener("click", () => win.minimize());
+document.getElementById("btn-min")!.addEventListener("click", () => {
+  void requestMinimize();
+});
 document.getElementById("btn-close")!.addEventListener("click", () => win.close());
 wirePin();
 
